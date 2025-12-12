@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>gismu generator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="gismu.css"></style>
+</head>
+<body>
+	<div class="wrap">
+		<h1>gismu generator</h1>
+		<div class="grid">
+				<div class="card small">
+				<div class="idk"><label class="lang">Chinese:</label><input id="zh" type="text" placeholder="uan"></input></center><br></div>
+				<div class="idk"><label class="lang">Hindi:</label><input id="hi" type="text" placeholder="rakan"></input><br></div>
+				<div class="idk"><label class="lang">English:</label><input id="en" type="text" placeholder="ekspekt"></input><br></div>
+				<div class="idk"><label class="lang">Spanish:</label><input id="es" type="text" placeholder="esper"></input><br></div>
+				<div class="idk"><label class="lang">Russian:</label><input id="ru" type="text" placeholder="predpologa"></input><br></div>
+				<div class="idk"><label class="lang">Arabic:</label><input id="ar" type="text" placeholder="mulud"></input><br></div>
+				</div>
+
+				<div class="idk" style="margin-top:16px">
+						<label>weights preset</label>
+						<select id="weightsPreset">
+							<option value="custom">Custom</option>
+							<option value="1985" selected>1985 (CLL)</option>
+							<option value="1987">1987</option>
+							<option value="1994">1994</option>
+							<option value="1995">1995</option>
+							<option value="1999">1999</option>
+							<option value="2025">2025</option>
+						</select>
+					 </div>
+					<div class="hidden idk" id="customw">
+						<label>custom weights <span class="hint">(comma separated)</span></label>
+						<input id="weights" type="text" placeholder="0.347,0.196,0.160,0.123,0.089,0.085" />
+					</div><div class="idk">
+						<label>maximum candidate amount to show</label>
+						<input id="topN" type="number" value="100" min="10" max="5000" /></div>
+					
+				<div style="margin-top:12px" class="idk">
+						<label class="bleh">gismu to check for clashes</label>
+					<select id="fileChoice">
+					<option value="official" selected>official only</option>
+					<option value="nocheck">no clash checking</option>
+					<option value="allofem" disabled>all gismu on jbovlaste (coming soon)</option>
+						</select>
+                <div id="winnerNote"></div>
+                <details style="margin-top:12px">
+                <summary style="color:var(--muted);font-size:13px;">custom shapes</summary><div class="tab">
+						<label>allowed shapes</label>
+						<input id="allowedshapes" type="text" placeholder="CVCCV,CCVCV"/></div>
+                </details>
+				</div>
+
+				<center><div style="margin-top:14px">
+					<button class="btn" id="runBtn">Generate & Score</button>
+				</div></center>
+
+			<section class="card hidden" id="final">
+				<h2>Status</h2>
+				<div class="kpi">
+					<div class="pill"><span id="candCount">0</span> candidates</div>
+					<div class="pill"><span id="scoredCount">0</span> scored</div>
+					<div class="pill"><span id="timeTaken">0</span> ms</div>
+				</div>
+				<div style="margin-top:12px">
+					<div class="muted">winner:</div>
+					<div id="winner" class="winner">---</div>
+					<div id="winnerNote" class="hint"></div>
+                    <div id="rafsilist" class="rafsi"></div>
+				</div>
+
+			<section class="card">
+				<h2>top candidates</h2>
+				<div class="table-wrap">
+					<table id="results">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>score</th>
+								<th>shape</th>
+								<th>per-word scores (normalized)</th>
+								<th>clashes</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</section>
+		</div>
+	</div>
+<script src=selcahi.js></script>
+<script src="gismu.js"></script>
+
+</body>
+</html>
