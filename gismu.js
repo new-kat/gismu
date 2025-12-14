@@ -188,7 +188,7 @@ let gismulist = OFFICIAL.slice();
 byId('fileChoice').addEventListener('change', e => {
 	const value = e.target.value;
 	if (value === "official") gismulist = OFFICIAL.slice();	
-	//if (value === "allofem") gismulist = JBOVLA.slice();
+	if (value === "allofem") gismulist = JBOVLA.slice();
 	if (value === "nocheck") gismulist = ["qqqqq"];
 
 });
@@ -267,7 +267,7 @@ byId('runBtn').addEventListener('click', ()=>{
 			for(const blah of scored){
 				const [score,candidate] = blah;
 				const g = matcher.findSimilar(candidate);
-				if(g===null){ winner=candidate; break; } else { clash=g;};
+				if(g===null){ winner=candidate; if(byId("clashcheck").checked){break;}} else { clash=g;};
 				blah.push(g);
 			}
 			if(winner){
@@ -290,4 +290,3 @@ byId('runBtn').addEventListener('click', ()=>{
 		alert(err.message);
 	}
 });
-
