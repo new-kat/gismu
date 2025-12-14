@@ -5,7 +5,7 @@
 	<title>gismu generator</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="gismu.css"></style>
-</head> 
+</head>
 <body>
 	<div class="wrap">
 		<h1>gismu generator</h1>
@@ -43,8 +43,10 @@
 					<select id="fileChoice">
 					<option value="official" selected>official only</option>
 					<option value="nocheck">no clash checking</option>
-					<option value="allofem" disabled>all gismu on jbovlaste (coming soon)</option>
+					<option value="allofem">all gismu on jbovlaste</option>
 						</select>
+                <label>stop clash checking after the winner</label>
+                 <input type="checkbox" checked id="clashcheck"></input>
                 <div id="winnerNote"></div>
                 <details style="margin-top:12px">
                 <summary style="color:var(--muted);font-size:13px;">custom shapes</summary><div class="tab">
@@ -90,7 +92,8 @@
 			</section>
 		</div>
 	</div>
-<script src=selcahi.js></script>
+<script src="selcahi.js"></script>
+<script src="jbovla.js"></script>
 <script src="gismu.js"></script>
 
 </body>
