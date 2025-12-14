@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: '0 0 * * 0' #every sunday 00:00
   workflow_dispatch:
+permissions:
+  contents: write
 
 jobs:
   run-script:
