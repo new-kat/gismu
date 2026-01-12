@@ -263,11 +263,11 @@ byId('runBtn').addEventListener('click', ()=>{
 		const topN = Math.max(10, Math.min(5000, parseInt(byId('topN').value||'100',10)));
 		if(gismulist.length>0){
 			const matcher = new GismuMatcher(gismulist);
-			let winner=null, clash=null;
+			let winner=null, clash=null, checkifwin = False;
 			for(const blah of scored){
 				const [score,candidate] = blah;
 				const g = matcher.findSimilar(candidate);
-				if(g===null){ winner=candidate; if(byId("clashcheck").checked){break;}} else { clash=g;};
+				if(g===null){ if(!checkifwin){winner=candidate;checkifwin = True}; if(byId("clashcheck").checked){break;}} else { clash=g;};
 				blah.push(g);
 			}
 			if(winner){
