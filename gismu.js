@@ -267,7 +267,7 @@ byId('runBtn').addEventListener('click', ()=>{
 			for(const blah of scored){
 				const [score,candidate] = blah;
 				const g = matcher.findSimilar(candidate);
-				if(g===null){ if(!checkifwin){winner=candidate;checkifwin = True}; if(byId("clashcheck").checked){break;}} else { clash=g;};
+				if(g===null){ if(!checkifwin){winner=candidate;checkifwin = true}; if(byId("clashcheck").checked){break;}} else { clash=g;};
 				blah.push(g);
 			}
 			if(winner){
