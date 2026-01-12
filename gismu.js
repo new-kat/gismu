@@ -263,7 +263,7 @@ byId('runBtn').addEventListener('click', ()=>{
 		const topN = Math.max(10, Math.min(5000, parseInt(byId('topN').value||'100',10)));
 		if(gismulist.length>0){
 			const matcher = new GismuMatcher(gismulist);
-			let winner=null, clash=null, checkifwin = False;
+			let winner=null, clash=null, checkifwin = false;
 			for(const blah of scored){
 				const [score,candidate] = blah;
 				const g = matcher.findSimilar(candidate);
